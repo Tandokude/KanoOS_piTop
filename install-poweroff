@@ -1,0 +1,16 @@
+# install automatic power off
+
+# create /opt/pi-top directory, if it does not exist
+[ ! -d /opt/pi-top  ] && sudo mkdir /opt/pi-top
+
+# copy poweroff to/opt/pi-top
+sudo cp poweroff /opt/pi-top
+sudo chmod 755 /opt/pi-top/poweroff
+
+# turn off pt-poweroff.service, if running (upgrade instead of installation)
+sudo systemctl disable pt-poweroff.service
+
+# install pt-poweroff service
+sudo cp pt-poweroff.service /lib/systemd/system
+cd /lib/systemd/system
+sudo systemctl enable pt-poweroff.service
