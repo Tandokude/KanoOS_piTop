@@ -1,9 +1,10 @@
 # install brightness and brightness.py in /home/pi/bin
 
 # create /home/$USER/bin directory, if it does not exist
-[ ! -d /home/$USER/bin  ] && mkdir /home/$USER/bin
+#[ ! -d /home/$USER/bin  ] && mkdir /home/$USER/bin
 
 # copy the file to /home/$USER/bin, make it executable
-cp brightness /home/$USER/bin
-chmod +x /home/$USER/bin/brightness
-alias brightness='/home/$USER/bin/brightness'
+cp brightness /bin
+chmod +x /bin/brightness
+alias brightness='/bin/brightness'
+echo "alias brightness='/bin/brightness'" >> /etc/bash.bashrc
